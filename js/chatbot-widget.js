@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sendButton = document.getElementById('send-button');
 
     // Set your deployed API URL
-    const API_URL = 'http://127.0.0.1:5000/api/chat';
+    const API_URL = 'http://192.168.29.243:5000/api/chat';
 
     // Toggle chat visibility
     chatToggle.addEventListener('click', function () {
@@ -76,10 +76,10 @@ document.addEventListener('DOMContentLoaded', function () {
             userInput.value = '';
 
             // Show loading indicator
-            const loadingMessage = 'Thinking...';
+            // const loadingMessage = 'Thinking...';
             const loadingDiv = document.createElement('div');
             loadingDiv.classList.add('message', 'bot-message');
-            loadingDiv.innerHTML = `<div class="message-content">${loadingMessage}</div>`;
+            loadingDiv.innerHTML = `<div class="message-content loading-dots"></div>`;
             chatMessages.appendChild(loadingDiv);
 
             // Get response from API
