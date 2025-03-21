@@ -12,19 +12,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Toggle chat visibility
     chatToggle.addEventListener('click', function () {
-        chatContainer.classList.add('active');
-        userInput.focus();
+        if (chatContainer.classList.contains('active')) {
+            chatContainer.classList.remove('active'); // Close chat if already open
+        } else {
+            chatContainer.classList.add('active'); // Open chat if closed
+            userInput.focus();
+        }
     });
 
-    // Close chat
+    // Close chat when clicking the close button
     closeChat.addEventListener('click', function () {
         chatContainer.classList.remove('active');
     });
 
-    // Function to add a message to the chat
-    // Function to add a message to the chat
-    // Function to add a message to the chat
-    // Function to add a message to the chat
     // Function to add a message to the chat
     function addMessage(message, isUser) {
         const messageDiv = document.createElement('div');
@@ -43,10 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Scroll to the bottom
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-
-
-
-
 
     // Function to send user message to API
     async function sendMessage(message) {
